@@ -1,0 +1,16 @@
+
+
+
+  <div class="fluid-conatiner h-100 home-background">
+    <div class="row p-2 home-border card-background">
+      <div class="col-auto">
+         <img src="assets/currency-exchange.png" class="logo"/>
+      </div>
+      <div class="col right-side m-auto">
+          <button class="m-2">EUR-USD Details</button>
+          <button [routerLink]="['currencies/currency-details']">EUR-GBP Details</button>
+      </div>  
+    </div>
+
+         <router-outlet></router-outlet>  
+  </div>
