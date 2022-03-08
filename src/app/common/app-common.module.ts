@@ -8,7 +8,12 @@ import { ConversionCardComponent } from './components/conversion-card/conversion
 
 @NgModule({
   declarations: [ConversionCardComponent],
-  exports:[ConversionCardComponent],
+  exports:[ConversionCardComponent,
+    MatSelectModule,
+    HttpClientModule,
+    MatInputModule,
+    FormsModule,
+    CommonModule],
   imports:[
     MatSelectModule,
     HttpClientModule,

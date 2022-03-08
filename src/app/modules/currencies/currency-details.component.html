@@ -1,1 +1,11 @@
-<p>currency-details works!</p>
+
+  <div class="row p-2">
+    <div class="col">
+      {{base.key}} - {{base.value}}
+    </div>
+    <div class="col">
+       <button [routerLink]="['/dashboard']">back to home</button>
+    </div>
+  </div>
+  
+  <app-conversion-card [baseCode]="base" [targetCode]="target" [detailsMode]="true"></app-conversion-card>

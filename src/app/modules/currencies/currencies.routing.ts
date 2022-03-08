@@ -9,7 +9,7 @@ const routes: Routes = [
     //redirectTo:'currency-details'
 
   },
-  { path: "currency-details",  component: CurrencyDetailsComponent },
+  { path: "currency-details/:key/:target",  component: CurrencyDetailsComponent },
 ];
 
 @NgModule({
