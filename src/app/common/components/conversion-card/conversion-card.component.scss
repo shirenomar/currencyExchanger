@@ -1,11 +1,21 @@
 .home-border{
     border: 1px solid gray;
 }
-.text-center{
-    text-align: center;
+.swap-icon{
+   width: 4em;
 }
-
 
 .card-background{
         background-color: white;
+}
+
+.conversion-card{
+    margin: 0.5em;
+    border: unset;
+    border-radius: 1em;
+}
+
+.labels{
+    border: 1px solid gray;
+    border-radius: 0.5em;
 }

@@ -2,3 +2,31 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.app-button{
+    background-color: #962921;
+    color: white;
+    border: unset;
+    padding: 7px;
+    border-radius: 7px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.padding-zero{
+        padding: 0 !important;
+}
+
+.font-size-23{
+    font-size: 23px;
+}
+
+.right-side{
+    text-align: right;
+}
+
+.button-size{
+    width: 20em;
+}

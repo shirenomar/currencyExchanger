@@ -14,6 +14,7 @@ export class ConversionCardComponent implements OnInit {
   @Input() baseCode :Currency = new Currency;
   @Input() targetCode : Currency = new Currency();
   @Input() detailsMode : boolean;
+  baseCodeChanged:boolean;
   conversionResult: ConversionResult;
   conversionValue: number;
   currencies : Currency[] = [];
@@ -22,6 +23,8 @@ export class ConversionCardComponent implements OnInit {
   ngOnInit(): void {
     this.getSymbols()
   }
+
+  
 
   getSymbols(){
 
@@ -38,18 +41,30 @@ export class ConversionCardComponent implements OnInit {
 
   convert(){
 
+
     this.currenciesContext.conversionProcess(this.baseCode.key , this.targetCode.key).subscribe((response)=>{       
         this.conversionResult = response;
         this.conversionValue = this.conversionResult.conversionRate * this.amount
-        console.log(this.conversionResult)
     })
+
+
+
+    //this.currenciesContext.historicalRate();
+  }
+
+  valueChanged(value){
+    this.currenciesContext.currencyChanged(value)
+
   }
 
   
   onSwap(from , to){
-    let temp = from;
-    this.baseCode=to
-    this.targetCode=temp
+    if(!this.detailsMode){
+      let temp = from;
+      this.baseCode=to
+      this.targetCode=temp
+      this.valueChanged(this.baseCode.key)
+    }
   }
 
 

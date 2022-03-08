@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ConversionCardComponent } from './components/conversion-card/conversion-card.component';
+import { CurrencyRateCardComponent } from './components/currency-rate-card/currency-rate-card.component';
 
 @NgModule({
-  declarations: [ConversionCardComponent],
+  declarations: [ConversionCardComponent, CurrencyRateCardComponent],
   exports:[ConversionCardComponent,
+    CurrencyRateCardComponent,
     MatSelectModule,
     HttpClientModule,
     MatInputModule,

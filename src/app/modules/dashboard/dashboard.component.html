@@ -1,9 +1,15 @@
 
   <div class="row p-2">
-    <div class="col">
+    <div class="col font-size-23 m-auto">
       Currency Exchanger
     </div>
   </div>
   
   <app-conversion-card></app-conversion-card>
+
+  <div class="row p-2">
+    <div class="col" *ngFor="let item of conversionResultList">
+      <app-currency-rate-card [conversionResult]="item"></app-currency-rate-card>
+    </div>
+  </div>
   

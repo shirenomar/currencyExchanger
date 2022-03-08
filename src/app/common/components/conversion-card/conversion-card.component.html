@@ -1,23 +1,23 @@
-<div class="fluid-container p-3 home-border card-background">
+<div class="fluid-container p-3 home-border card-background shadow-sm conversion-card">
     <div class="row">
       <div class="col">
         <mat-form-field class="example-form-field" appearance="outline">
           <mat-label>Amount</mat-label>
-          <input matInput type="text" [(ngModel)]="amount">
+          <input matInput type="number" [(ngModel)]="amount">
         </mat-form-field>
       </div>
       <div class="col">
         <div class="row">
-          <mat-form-field appearance="outline" class="col">
+          <mat-form-field appearance="outline" class="col m-auto">
             <mat-label>From</mat-label>
-            <mat-select [(value)]="baseCode.key"  [disabled]="detailsMode">
+            <mat-select [(value)]="baseCode.key"  [disabled]="detailsMode" (selectionChange)="valueChanged($event.value)">
               <mat-option *ngFor="let currency of currencies" [value]="currency.key"> {{currency.key}} </mat-option>
             </mat-select>
           </mat-form-field>
           <div class="col-auto m-auto">
-            <button (click)="onSwap(baseCode,targetCode)">Swap</button>
+            <img  src="assets/swap-icon.png" class="swap-icon" (click)="onSwap(baseCode,targetCode)"/>
           </div>
-          <mat-form-field appearance="outline" class="col">
+          <mat-form-field appearance="outline" class="col m-auto">
             <mat-label>To</mat-label>
             <mat-select [(value)]="targetCode.key">
               <mat-option *ngFor="let currency of currencies" [value]="currency.key"> {{currency.key}} </mat-option>
@@ -25,20 +25,20 @@
           </mat-form-field>
         </div>
         <div class="row p-2">
-          <button class="col" (click)="convert()" >Convert</button>
+          <button class="col app-button" (click)="convert()" [disabled]="!amount || amount == 0">Convert</button>
         </div>
       </div>
     </div>
   
     <div class="row">
-      <div class="col p-2 m-1 home-border text-center">
-       1 {{ conversionResult?.baseCode }} = {{ conversionResult?.conversionRate | number : '1.2-2' }} {{conversionResult?.targetCode }} 
+      <div class="col p-2 m-1 home-border text-center labels">
+        <label *ngIf="conversionResult" > 1 {{ conversionResult.baseCode }} = {{ conversionResult.conversionRate | number : '1.2-2' }} {{conversionResult?.targetCode }} </label>
       </div>
-      <div class="col p-2 m-1 home-border text-center">
+      <div class="col p-2 m-1 home-border text-center labels">
         {{ conversionValue | number : '1.2-2' }} {{conversionResult?.targetCode }} 
       </div>
-      <div class="col p-2 m-1" *ngIf="!detailsMode">
-        <button>More Details</button>
+      <div class="col-auto p-2 m-1" *ngIf="!detailsMode">
+        <button class="app-button button-size" [disabled]="!amount || amount == 0">More Details</button>
       </div>
     </div>
   </div>

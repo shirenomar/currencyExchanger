@@ -12,6 +12,7 @@ export class CurrencyDetailsComponent implements OnInit {
 
   base : Currency;
   target : Currency;
+  value : string; 
   constructor( private route : ActivatedRoute , private currenciesContext : CurrenciesContext) { }
 
   ngOnInit(): void {
